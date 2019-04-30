@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements AIListener {
         //activamos el servicio escucha
         mAIService = AIService.getService(this, config);
         mAIService.setListener(this);
+        //se activa directamente con la apertura de la aplicacion
+        mAIService.startListening();
         //activamos servicio de voz(respuesta)
         mTextToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
@@ -57,14 +59,14 @@ public class MainActivity extends AppCompatActivity implements AIListener {
 
             }
         });
-        //activamos el boton
-        findViewById(R.id.btn_micro).setOnClickListener(new View.OnClickListener() {
-            @Override
+        //activamos el boton, esta es la primera opcion que contemplamos de activacion
+        /*findViewById(R.id.btn_micro).setOnClickListener(new View.OnClickListener() {
+           @Override
             public void onClick(View v) {
                 mAIService.startListening();
 
             }
-        });
+        });*/
 
     }
 
