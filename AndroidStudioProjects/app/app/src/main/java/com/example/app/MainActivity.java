@@ -136,8 +136,9 @@ public class MainActivity extends AppCompatActivity implements AIListener {
                         //aqui ya tenemos la informacion y el programa nos responde
                         runOnUiThread(new Runnable() {
                             @Override
-                            public void run() {
-                                mTextToSpeech.speak((constructor1.toString()+constructor2.toString()+constructor3.toString()),TextToSpeech.QUEUE_FLUSH, null, null);
+                            public void run() {                                                                               //el textospeech se añade al ya en ejecucion evitando que se pisen
+                                mTextToSpeech.speak((constructor1.toString()+constructor2.toString()+constructor3.toString()),TextToSpeech.QUEUE_ADD, null, null);
+
                             }
                         });
                     }
